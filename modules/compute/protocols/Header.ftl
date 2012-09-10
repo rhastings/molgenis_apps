@@ -1,11 +1,9 @@
-#!/bin/bash
-#PBS -N ${jobname}
-#PBS -q ${clusterQueue}
-#PBS -l nodes=1:ppn=${cores}
-#PBS -l walltime=${walltime}
-#PBS -l mem=${mem}
-#PBS -e ${jobname}.err
-#PBS -o ${jobname}.out
+# Load backend specific header
+<#if backend = "PBS">
+	<#include "PBSHeader.ftl">
+<#elseif backend = "GRID">
+	source maverick.sh
+</#if>
 
 # Configures the GCC bash environment
 . ${root}/gcc.bashrc

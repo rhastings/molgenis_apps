@@ -1,6 +1,7 @@
 package org.molgenis.datatable.model;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class BinaryTupleTable extends AbstractFilterableTupleTable
 	{
 		if (columns == null)
 		{
+			columns = new ArrayList<Field>();
 			for (String name : matrix.getColNames())
 			{
 				columns.add(new Field(name));

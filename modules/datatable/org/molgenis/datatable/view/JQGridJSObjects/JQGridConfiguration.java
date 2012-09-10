@@ -6,9 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.molgenis.datatable.model.FilterableTupleTable;
+import org.molgenis.datatable.model.ProtocolTable;
 import org.molgenis.datatable.model.TableException;
 import org.molgenis.datatable.model.TupleTable;
 import org.molgenis.model.elements.Field;
+
+import com.google.gson.Gson;
 
 public class JQGridConfiguration
 {
@@ -16,6 +19,8 @@ public class JQGridConfiguration
 
 	/** ajax url */
 	public final String url;
+
+	public final String editurl;
 
 	/** formatting of the ajax service data */
 	public final String datatype = "json";
@@ -69,8 +74,18 @@ public class JQGridConfiguration
 
 	public JQGridSettings settings = new JQGridSettings();
 
+	// The javascript tree to show/hide columns above the grid
+	public boolean showColumnTree = true;
+
 	@SuppressWarnings("unchecked")
 	public Object[] toolbar = Arrays.asList(true, "top").toArray();
+
+	public JQGridConfiguration(String id, String idField, String url, String caption, TupleTable tupleTable,
+			boolean showColumnTree) throws TableException
+	{
+		this(id, idField, url, caption, tupleTable);
+		this.showColumnTree = showColumnTree;
+	}
 
 	public JQGridConfiguration(String id, String idField, String url, String caption, TupleTable tupleTable)
 			throws TableException
@@ -78,6 +93,7 @@ public class JQGridConfiguration
 		this.id = id;
 		this.pager = "#" + id + "_pager";
 		this.url = url;
+		this.editurl = url;
 		this.caption = caption;
 
 		// "{repeatitems: false, id: \"Code\"}"
@@ -88,18 +104,33 @@ public class JQGridConfiguration
 		{
 			// sortable = true;
 			settings.search = true;
+			settings.add = true;
+			settings.edit = true;
+			settings.del = true;
 		}
 
-		for (final Field f : tupleTable.getColumns())
+		if (tupleTable instanceof ProtocolTable)
 		{
-			JQGridColModel model = new JQGridColModel(f);
-			if (tupleTable instanceof FilterableTupleTable)
+			for (final Field f : tupleTable.getColumns())
 			{
-				model.sortable = true;
+				JQGridColModel model = new JQGridColModel(f);
+				if (tupleTable instanceof FilterableTupleTable)
+				{
+					model.sortable = true;
+				}
+				colModel.add(model);
+				colNames.add(f.getSqlName());
 			}
-			colModel.add(model);
-			colNames.add(f.getSqlName());
 		}
+		else
+		{
+			for (final Field f : tupleTable.getColumns())
+			{
+				colModel.add(new JQGridColModel(f.getLabel()));
+			}
+		}
+
+		System.out.println(new Gson().toJson(settings));
 	}
 
 	public JQGridConfiguration(String id, String url, String caption)
@@ -107,6 +138,7 @@ public class JQGridConfiguration
 		this.id = id;
 		pager = "#" + id + "Pager";
 		this.url = url;
+		this.editurl = url;
 		this.caption = caption;
 	}
 }
