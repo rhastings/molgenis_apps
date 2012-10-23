@@ -1,12 +1,17 @@
 ## Build folders
 bin/
 build/
+<<<<<<< HEAD
 classes/
 tmp/
 hsqldb/
 handwritten/
 generated/
 WebContent/WEB-INF/lib/
+=======
+tmp/
+target/
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
 
 ## Always ignore these
 *~
@@ -14,17 +19,23 @@ WebContent/WEB-INF/lib/
 *.DS_Store
 *.swp
 *.out
+<<<<<<< HEAD
 *.passwd
+=======
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
 
 ## Netbeans private
 nbproject/private/
 
+<<<<<<< HEAD
 ## IntelliJ private
 .idea/
 molgenis_apps.eml
 molgenis_apps.iml
 
 
+=======
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
 ## General java
 *.class
 
@@ -38,6 +49,7 @@ tmp*
 log*
 .classpath
 /.externalToolBuilders
+<<<<<<< HEAD
 *.svn
 *.orig
 *.java~
@@ -58,3 +70,7 @@ logger.out*
 /.settings/org.eclipse.wst.common.component
 /.settings/org.eclipse.core.resources.prefs
 /apps/catalogue/plugins/hl7parser/PropertiesPath.java
+=======
+/.settings
+/test-output
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3

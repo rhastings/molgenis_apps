@@ -7,15 +7,25 @@ analysis tools in R, Java and web services.
 
 Developing your own
 -------------------
+<<<<<<< HEAD
 Generate your own in three steps:
 
 1) Clone the MOLGENIS generator and an empty distro:
+=======
+Generate generate your own in three steps:
+
+1) Clone the MOLGENIS generator and an empty distro
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
 
      git clone https://www.github.com/molgenis/molgenis.git
      git clone https://www.github.com/molgenis/molgenis_distro.git
      cd molgenis_distro
 
+<<<<<<< HEAD
 2) Model what you want for your experiment in a simple XML file example db, example ui:
+=======
+2) Model what you want for your experiment in a simple XML file example db, example ui
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
 
      <editor> molgenis.properties
      <editor> molgenis_db.xml
@@ -44,4 +54,8 @@ Many molgenis applications have been developed, a not so short overview:
  - Bacterial microarrays database (MOLGEN-IS) (publication)
  - Human Metabolic Pathway Database (project, publication)
 
+<<<<<<< HEAD
 If you think your project should be listed (differently) please let us know.
+=======
+If you think your project should be listed (differently) please let us know
+>>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
