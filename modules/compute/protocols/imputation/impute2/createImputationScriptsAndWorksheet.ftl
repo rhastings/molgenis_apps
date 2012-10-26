@@ -10,7 +10,7 @@ getFile ${chrBinsFile}
 
 inputs "${McWorksheet}"
 inputs "${chrBinsFile}"
-#alloutputsexist "${projectComputeDir}/${project}.worksheet.csv"
+#alloutputsexist "${expandedWorksheet}"
 
 
 mkdir -p ${projectTempDir}
@@ -23,14 +23,11 @@ module load jdk/${javaversion}
 <#if imputationPipeline == "impute2">
 
 
-	java -jar ${expandWorksheetJar} ${McWorksheet} ${projectComputeDir}/${project}.worksheet.csv ${chrBinsFile} project ${project} 
+	java -jar ${expandWorksheetJar} ${McWorksheet} ${expandedWorksheet} ${chrBinsFile} project ${project} 
 	
-	
-	
-	# Execute MOLGENIS/compute to create job scripts to analyse this project.
-	#
+	# Execute MOLGENIS/compute to create job scripts.
 	sh ${McDir}/molgenis_compute.sh \
-	-worksheet=${projectComputeDir}/${project}.worksheet.csv \
+	-worksheet=${expandedWorksheet} \
 	-parameters=${McParameters} \
 	-workflow=${McProtocols}/workflowImpute.csv \
 	-protocols=${McProtocols}/ \

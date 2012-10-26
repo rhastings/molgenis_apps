@@ -70,7 +70,11 @@ logger.out*
 /.settings/org.eclipse.wst.common.component
 /.settings/org.eclipse.core.resources.prefs
 /apps/catalogue/plugins/hl7parser/PropertiesPath.java
+<<<<<<< HEAD
 =======
 /.settings
 /test-output
 >>>>>>> 339b1623cf9507fee24fdbfe80e4b9c7ba962ba3
+=======
+runmij*
+>>>>>>> 54e39bc18f8bcd3fb9da59d3128c15d1d39ae95b

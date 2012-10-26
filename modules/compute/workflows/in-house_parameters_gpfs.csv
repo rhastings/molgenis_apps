@@ -1,5 +1,5 @@
 Name,defaultValue,description,dataType,hasOne_name
-clusterQueue,umcg,,,
+clusterQueue,gaf,,,
 mem,4,Memory in GB,,
 walltime,23:59:00,,,
 cores,1,,,
@@ -272,3 +272,7 @@ demultiplexedDiscardedFastqChecksumFilenamePE1,${demultiplexedDiscardedFastqFile
 demultiplexedDiscardedFastqChecksumFilenamePE2,${demultiplexedDiscardedFastqFilenamePE2}${md5sumExtension},use these for demultiplexed reads assigned to a sample,,
 #,,,,
 log,log.log,,,
+#
+fastqcVersion,v0.7.0,,,
+bwaVersion,0.5.8c_patched,,,
+picardVersion,1.61,,,
